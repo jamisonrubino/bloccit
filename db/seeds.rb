@@ -33,7 +33,16 @@
  puts "#{Post.count}"
  
  
+ 10.times do
+  Advertisement.create!(
+   title: RandomData.random_sentence,
+   body: RandomData.random_paragraph,
+   price: 6
+  )
+ end
+ 
  
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ puts "#{Advertisement.count} advertisements created"
