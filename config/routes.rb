@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  # get 'questions/index'
+
+  # get 'questions/new'
+
+  # get 'questions/edit'
+
+  # get 'questions/show'
+
   # get 'advertisements_controller/index'
 
   # get 'advertisements_controller/show'
@@ -7,6 +15,8 @@ Rails.application.routes.draw do
   # get 'advertisements_controller/new'
 
   # get 'advertisements_controller/create'
+  
+  resources :questions
   
   resources :advertisements
 
