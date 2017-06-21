@@ -16,6 +16,14 @@ Rails.application.routes.draw do
 
   # get 'advertisements_controller/create'
   
+  resources :topics do
+
+    resources :posts, except: [:index]
+    
+  end
+  
+  resources :topics
+  
   resources :questions
   
   resources :advertisements
