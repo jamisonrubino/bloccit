@@ -22,20 +22,6 @@ Rails.application.routes.draw do
 
   # get 'advertisements_controller/create'
   
-  resources :topics do
-
-    resources :posts, except: [:index]
-    
-    resources :sponsored_posts, except: [:index]
-    
-  end
-  
-  resources :questions
-  
-  resources :advertisements
-
-  resources :posts
-  
   # get 'posts/index'
 
   # get 'posts/show'
@@ -49,6 +35,20 @@ Rails.application.routes.draw do
   # get 'welcome/about'
   
   # get 'welcome/faq'
+  
+  resources :topics do
+
+    resources :posts, except: [:index]
+    
+    resources :sponsored_posts, except: [:index]
+    
+  end
+  
+  resources :questions
+  
+  resources :advertisements
+
+  resources :posts
   
   get 'about' => 'welcome#about'
   
