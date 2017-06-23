@@ -34,7 +34,8 @@
   SponsoredPost.create!(
    topic: topics.sample,
    title: RandomData.random_sentence,
-   body: RandomData.random_paragraph
+   body: RandomData.random_paragraph,
+   price: 6
    )
  end
  sponsored_posts = SponsoredPost.all
@@ -52,7 +53,7 @@
   100.times do
    Comment.create!(
  # #4
-     post: sponsored_posts.sample,
+     sponsored_post: sponsored_posts.sample,
      body: RandomData.random_paragraph
    )
  end
