@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     
   end
   
+  resources :users, only: [:new, :create]
+  
   resources :questions
   
   resources :advertisements
