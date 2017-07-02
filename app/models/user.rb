@@ -13,17 +13,10 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false },
         length: { minimum: 3, maximum: 254 }
 
- # #6
-   has_secure_password
-   
+    has_secure_password
    
     def format_name
-        if name
-            names = []
-            name.split(" ").each do |n|
-                names << n.capitalize
-            end
-            self.name = names.join(" ")
-        end
+        name = name.split(" ").map! { |n| n.capitalize }.join(" ")
     end
+    
 end

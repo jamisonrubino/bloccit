@@ -37,23 +37,17 @@ Rails.application.routes.draw do
   # get 'welcome/faq'
   
   resources :topics do
-
     resources :posts, except: [:index]
-    
     resources :sponsored_posts, except: [:index]
-    
   end
   
   resources :users, only: [:new, :create]
+  post 'users/confirm' => 'users#confirm'
   
   resources :questions
-  
   resources :advertisements
-
   resources :posts
-  
   get 'about' => 'welcome#about'
-  
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
