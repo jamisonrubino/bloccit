@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   
   # get 'welcome/faq'
   
+  resources :sessions, only: [:new, :create, :destroy]
+  
   resources :topics do
     resources :posts, except: [:index]
     resources :sponsored_posts, except: [:index]
