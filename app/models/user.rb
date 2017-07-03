@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
     has_secure_password
    
     def format_name
-        name = name.split(" ").map! { |n| n.capitalize }.join(" ")
+        self.name = name.split.map{|n| n.capitalize}.join(" ") if name
     end
-    
 end
