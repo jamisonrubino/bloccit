@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       create_session(user)
-      user.avatar_url = avatar_url(user)
       flash[:notice] = "Welcome, #{user.name}!"
       redirect_to root_path
     else
@@ -17,10 +16,8 @@ class SessionsController < ApplicationController
   end
  
   def destroy
- # #3
     destroy_session(current_user)
     flash[:notice] = "You've been signed out, come back soon!"
     redirect_to root_path
   end
-  
 end

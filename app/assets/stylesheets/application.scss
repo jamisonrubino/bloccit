@@ -7,11 +7,37 @@
    display: inline-block;
  }
  
+ .user-info a p {
+   margin: 0 5px;
+   line-height: 17px; 
+   display: inline-block;
+ }
+ 
  .nav {
    margin-top: 5px;
  }
  
+ .gravatar {
+   max-width: 45px;
+   margin: 5px 0;
+ }
  
+ 
+ 
+//  .avatar {
+//    display: inline-block;
+//    margin: 5px 0;
+//    padding: 15px 0 0 0;
+//    vertical-align: text-bottom;    
+//    line-height: 2px;
+
+//  }
+ 
+//  .avatar a {
+//     font-size: 1.1em;
+//     color: #35a;
+//     padding: 0;
+// }
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
