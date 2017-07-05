@@ -16,8 +16,17 @@
       </ul>
       
       <div class="pull-right user-info">
-        <%= link_to "Sign Up", new_user_path %>
+        <% if current_user %>
+          <div class="pull-right">
+            <%= link_to "#{current_user.name.split(" ")[0]} Sign Out", session_path(current_user), method: :delete %>
+            <%= image_tag(avatar_url(current_user), class: "gravatar") %>
+          </div>
+        <% else %>
+          <%= link_to "Sign In", new_session_path %> or
+          <%= link_to "Sign Up", new_user_path %>
+        <% end %>
       </div>
+
       
      <% if flash[:notice] %>
        <div class="alert alert-success">

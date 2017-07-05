@@ -3,12 +3,11 @@ class SessionsController < ApplicationController
   end
  
   def create
- # #1
     user = User.find_by(email: params[:session][:email].downcase)
 
- # #2
     if user && user.authenticate(params[:session][:password])
       create_session(user)
+      user.avatar_url = avatar_url(user)
       flash[:notice] = "Welcome, #{user.name}!"
       redirect_to root_path
     else
@@ -23,4 +22,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "You've been signed out, come back soon!"
     redirect_to root_path
   end
+  
 end
