@@ -7,6 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  require 'random_data'
 
+
+ 5.times do
+  User.create!(
+   name:     RandomData.random_name,
+   email:    RandomData.random_email,
+   password: RandomData.random_sentence
+  )
+ end
+ users = User.all
+
  # Create Topics
  15.times do
    Topic.create!(
@@ -22,6 +32,7 @@
  # #1
    Post.create!(
  # #2
+     user:   users.sample,
      topic:  topics.sample,
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
@@ -32,11 +43,11 @@
  # Create Sponsored Posts
  10.times do
   SponsoredPost.create!(
-   topic: topics.sample,
-   title: RandomData.random_sentence,
-   body: RandomData.random_paragraph,
-   price: 6
-   )
+   topic:  topics.sample,
+   title:  RandomData.random_sentence,
+   body:   RandomData.random_paragraph,
+   price:  6
+  )
  end
  sponsored_posts = SponsoredPost.all
  
@@ -79,7 +90,14 @@
   )
  end
  
+ user = User.first
+   user.update_attributes!(
+   email: 'jamison.rubino@gmail.com', # replace this with your personal email
+   password: 'helloworld'
+ )
+ 
  puts "Seed finished"
+ puts "#{User.count} users created"
  puts "#{Topic.count} topics created"
  puts "#{Post.count} posts created"
  puts "#{SponsoredPost.count} sponsored posts created"
