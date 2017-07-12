@@ -23,7 +23,15 @@
    email:    'member@example.com',
    password: 'helloworld'
  )
- users = User.all
+
+moderator = User.create!(
+   name:      'Moderator User',
+   email:     'moderator@example.com',
+   password:  'helloworld',
+   role:      'moderator'
+)
+ 
+  users = User.all
 
  # Create Topics
  15.times do
