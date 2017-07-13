@@ -2,15 +2,22 @@
  @import "bootstrap";
 
  .user-info {
-   margin-top: 5px;
+   // margin-top: 5px;
    margin-right: 5px;
    display: inline-block;
+   max-height: 35px;
  }
  
  .user-info a p {
-   margin: 0 5px;
-   line-height: 17px; 
+   margin: 0 5px 5px;
+   line-height: 15px; 
    display: inline-block;
+   vertical-align: bottom;
+ }
+ 
+ .user-info img {
+   max-height: 33px;
+   vertical-align: top;
  }
  
  .nav {
