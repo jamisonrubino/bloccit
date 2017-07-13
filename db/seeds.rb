@@ -7,9 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  require 'random_data'
 
-
  # Create an admin user
-
  admin = User.create!(
    name:     'Admin User',
    email:    'admin@example.com',
@@ -45,9 +43,7 @@ moderator = User.create!(
 
  # Create Posts
  50.times do
- # #1
    Post.create!(
- # #2
      user:   users.sample,
      topic:  topics.sample,
      title:  RandomData.random_sentence,
@@ -68,10 +64,8 @@ moderator = User.create!(
  sponsored_posts = SponsoredPost.all
  
  # Create Comments
- # #3
  100.times do
    Comment.create!(
- # #4
      user: users.sample,
      post: posts.sample,
      body: RandomData.random_paragraph
@@ -80,14 +74,14 @@ moderator = User.create!(
  
   100.times do
    Comment.create!(
- # #4
+     user: users.sample,
      sponsored_post: sponsored_posts.sample,
      body: RandomData.random_paragraph
    )
  end
  
  puts "#{Post.count}"
- Post.find_or_create_by!(title: "A new post title!", body: "A new post body!!!!")
+ Post.find_or_create_by!(user: "New User", title: "A new post title!", body: "A new post body!!!!")
  puts "#{Post.count}"
  
  
