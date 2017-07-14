@@ -17,8 +17,7 @@ RSpec.describe SponsoredPost, type: :model do
 
    let(:topic) { Topic.create!(name: name, description: description) }
  # #4
-   let(:post) { topic.sponsored_posts.create!(title: title, body: body) }
- 
+
    it { is_expected.to belong_to(:topic) }
 
 
