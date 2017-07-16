@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
     has_many :favorites, dependent: :destroy
     
     after_create :create_vote
+    after_create :create_favorite
     
     default_scope { order('rank DESC') }
     scope :ordered_by_title, -> { order(title: :asc) }
@@ -39,5 +40,7 @@ class Post < ActiveRecord::Base
     def create_vote
         user.votes.create(post: self, value: 1)
     end
-
+    def create_favorite
+        user.favorites.create(post: self)
+    end
 end

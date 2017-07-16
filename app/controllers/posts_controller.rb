@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   
   def create
  # #9
-    @topic = Topic.find[params[:topic_id]]
+    @topic = Topic.find(params[:topic_id])
   #  @post = @topic.posts.build(params[:post])   # mass assignment - must whitelist parameters you can save, for security reasons
     @post = @topic.posts.build(post_params)
     @post.user = current_user

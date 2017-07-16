@@ -11,5 +11,11 @@ class FavoriteMailer < ApplicationMailer
         @comment = comment
  
         mail(to: user.email, subject: "New comment on #{post.title}")
+        
+    end
+    
+    def new_post(post)
+        Favorite.new(post: post)
+        flash[:notice] = "Your post was favorited. You will be notified of comments by email."
     end
 end
