@@ -9,19 +9,18 @@ class FavoriteMailer < ApplicationMailer
         @post = post
         @comment = comment
  
-        mail(to: user.email, subject: "New comment on #{post.title}")
+        mail(to: @user.email, subject: "New comment on #{@post.title}")
     end
     
     def new_post(user, post)
         Favorite.new(post: post)
-        flash[:notice] = "Your post was created and favorited. You will be notified of comments by email."
- 
+
         headers["Post-ID"] = "<post/#{post.id}@your-app-name.example>"
         headers["References"] = "<post/#{post.id}@your-app-name.example>"
 
         @user = user
         @post = post
 
-        mail(to: user.email, subject: "New post created and favorited.")
+        mail(to: @user.email, subject: "New post created and favorited.")
     end
 end
