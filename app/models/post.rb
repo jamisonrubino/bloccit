@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
     
     after_create :create_vote
     after_create :create_favorite
+    after_create :send_new_post_email
     
     default_scope { order('rank DESC') }
     scope :ordered_by_title, -> { order(title: :asc) }
@@ -42,5 +43,8 @@ class Post < ActiveRecord::Base
     end
     def create_favorite
         user.favorites.create(post: self)
+    end
+    def send_new_post_email
+        FavoriteMailer.new_post(@post.user, @post).deliver_now
     end
 end
