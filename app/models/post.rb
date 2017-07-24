@@ -10,9 +10,10 @@ class Post < ActiveRecord::Base
     after_create :send_new_post_email
     
     default_scope { order('rank DESC') }
+    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
+    scope :favorited, -> (user) { Favorite.where('favorite.user_id' => 'current_user.user_id') }
     scope :ordered_by_title, -> { order(title: :asc) }
     scope :ordered_by_reverse_created_at, -> { order(created_at: :asc) }
-    
     
     validates :title, length: { minimum: 5 }, presence: true
     validates :body, length: { minimum: 20 }, presence: true

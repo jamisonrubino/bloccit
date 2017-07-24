@@ -50,10 +50,12 @@ Rails.application.routes.draw do
     post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
   
-
-  
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   post 'users/confirm' => 'users#confirm'
+  
+  resources :users, only: [] do
+    resources :comments, only: [:destroy]
+  end
   
   resources :questions
   resources :advertisements
