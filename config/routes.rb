@@ -1,39 +1,21 @@
 Rails.application.routes.draw do
-
   # get 'sponsored_posts/show'
-
   # get 'sponsored_posts/new'
-
   # get 'sponsored_posts/edit'
-
   # get 'questions/index'
-
   # get 'questions/new'
-
   # get 'questions/edit'
-
   # get 'questions/show'
-
   # get 'advertisements_controller/index'
-
   # get 'advertisements_controller/show'
-
   # get 'advertisements_controller/new'
-
   # get 'advertisements_controller/create'
-  
   # get 'posts/index'
-
   # get 'posts/show'
-
   # get 'posts/new'
-
   # get 'posts/edit'
-
   # get 'welcome/index'
-
   # get 'welcome/about'
-  
   # get 'welcome/faq'
   
   resources :sessions, only: [:new, :create, :destroy]
